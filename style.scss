@@ -1,0 +1,57 @@
+@import "scss/vars";
+h4{
+    font-size: 30px;
+}
+.blue{
+    color: blue;
+}
+.red{
+    color: red;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+.active{
+    color: #495057;
+    background-color: #fff;
+    border-color: #dee2e6 #dee2e6 #fff;
+  }
+  
+  #voice {
+    font-size: 0.875rem;
+    font-family: inherit;
+  }
+
+.conteiner{
+    max-width: $widthConteiner;
+    margin: 0 auto;
+    background-color: yellow;
+    display:flex;
+    justify-content: start;
+    flex-wrap: wrap;
+}
+
+.letter{
+    width: $letterSize;
+    height: $letterSize;
+    border: 1px solid #F26376;
+    line-height: $letterSize;
+    text-align: center;
+    margin: 10px;
+}
