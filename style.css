@@ -10,6 +10,44 @@ h4 {
   color: red;
 }
 
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.menu {
+  width: 13%;
+  background: #C8EAF5;
+  text-align: center;
+  font-size: 25px;
+  color: green;
+}
+
+.menu__ul {
+  color: rgba(52, 221, 18, 0.952);
+  font-size: 20px;
+}
+
+.menu__ul__item {
+  padding-top: 0.5rem;
+}
+
+.menu__ul__item__obj {
+  color: black;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.conteiner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.lang_menu {
+  background-color: #00b7ff;
+}
+
 .nav-tabs {
   border-bottom: 1px solid #dee2e6;
 }
@@ -28,25 +66,24 @@ h4 {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
-  color: #007bff;
+  color: black;
   text-decoration: none;
   background-color: transparent;
 }
 
 .active {
   color: #495057;
-  background-color: #fff;
+  background-color: #3fd32b;
   border-color: #dee2e6 #dee2e6 #fff;
 }
 
-#voice {
-  font-size: 0.875rem;
-  font-family: inherit;
-}
-
-.conteiner {
-  max-width: 1140px;
-  margin: 0 auto;
+/* 
+  #voice {
+    font-size: 0.875rem;
+    font-family: inherit;
+  }
+*/
+.abc_cont {
   background-color: yellow;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -56,6 +93,7 @@ h4 {
           justify-content: start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  width: 74%;
 }
 
 .letter {
@@ -64,6 +102,50 @@ h4 {
   border: 1px solid #F26376;
   line-height: 80px;
   text-align: center;
+}
+
+.letter_margin_abc {
   margin: 10px;
+}
+
+.movelink_letter {
+  cursor: pointer;
+}
+
+.maked_word {
+  margin-top: 40px;
+}
+
+.maked_word__word {
+  background-color: #7fc8f1;
+  background: #C8EAF5;
+  border: 1px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 82px;
+}
+
+.maked_word__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-top: 15px;
+}
+
+.buttons {
+  font-size: 20px;
+  min-width: 80px;
+  min-height: 25px;
+  background-color: tomato;
+}
+
+.disp_none {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

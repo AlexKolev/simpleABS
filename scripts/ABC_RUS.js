@@ -23,7 +23,7 @@ let ABC_RUS = [
     { letter: 'х', color: 'blue' },
     { letter: 'ц', color: 'blue' },
     { letter: 'ч', color: 'blue' },
-    { letter: 'ш', color: 'red' },
+    { letter: 'ш', color: 'blue' },
     { letter: 'ъ', color: 'blue' },
     { letter: 'ы', color: 'red' },
     { letter: 'ь', color: 'blue' },

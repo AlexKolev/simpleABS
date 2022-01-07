@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <div class=" menu container">
+
+    <div class="lang_menu">
         <ul class="nav nav-tabs">
             <li class="nav-item">
                 <a class="nav-link" href="#">ENG</a>
@@ -24,24 +25,45 @@
         </ul>
     </div>
     <!--
-    <label for="voice">Голос:</label>
-    <select id="voice"></select>
-     -->
-    <div class="conteiner">
-        <!--
-        <div class="letter red">
-            <h4>Aa</h4>
+        <label for="voice">Голос:</label>
+        <select id="voice"></select>
+        -->
+    <div class="wrapper">
+        <aside class="menu right">MENU
+            <ul class="menu__ul">
+                <li class="menu__ul__item">
+                    <a id="menu_1" class="menu__ul__item__obj active" href="#">ABC</a>
+                </li>
+                <li class="menu__ul__item">
+                    <a id="menu_2" class="menu__ul__item__obj" href="#">WORD</a>
+                </li>
+            </ul>
+        </aside>
+        <div class="main conteiner">
+            <div class="abc_cont conteiner"></div>
+            <div class="maked_word disp_none conteiner">
+                <div class="maked_word__word"></div>
+                <div class="maked_word__buttons conteiner">
+                    <button class="maked_word__buttons__say buttons">Say</button>
+                    <button class="maked_word__buttons__clear buttons">Clear</button>
+                </div>
+            </div>
         </div>
-        <div class="letter blue">
-            <h4>Bb</h4>
-        </div>
-        <div class="letter blue">
-            <h4>Cc</h4>
-        </div>
-    -->
+        <aside class="menu left"></aside>
     </div>
+    <!--
+    <div class="maked_word disp_none conteiner">
+        <div class="maked_word__word"></div>
+        <div class="maked_word__buttons conteiner">
+            <button class="maked_word__buttons__say buttons">Say</button>
+            <button class="maked_word__buttons__clear buttons">Clear</button>
+        </div>
+    </div>
+    -->
     <script src="scripts/ABC_RUS.js"></script>
     <script src="scripts/ABC_ENG.js"></script>
+    <script src="scripts/abc_choice.js"></script>
+    <script src="scripts/menu_choice.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 
