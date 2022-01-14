@@ -2,8 +2,12 @@
 h4{
     font-size: 30px;
 }
-
-
+header{
+    min-height: 5vh;
+}
+footer{
+    min-height: 5vh;
+}
 .blue{
     color: blue;
 }
@@ -12,25 +16,15 @@ h4{
 }
 .wrapper{
     display: flex;
+    height: 90vh;
 }
-.menu{
+
+aside{
     width: 13%; 
     background: #C8EAF5; 
     text-align: center;
     font-size: 25px;
     color: green;
-    &__ul{
-        color: rgba(52, 221, 18, 0.952);
-        font-size: 20px;
-        &__item{
-            padding-top: 0.5rem;
-            &__obj{
-                color: black;
-                text-decoration: none;
-                background-color: transparent;
-            }
-        }
-    }
 }
 
 .conteiner{
@@ -58,24 +52,70 @@ h4{
     text-decoration: none;
     background-color: transparent;
 }
-.active{
-    color: #495057;
-    background-color: rgb(63, 211, 43);
-    border-color: #dee2e6 #dee2e6 #fff;
-  }
  /* 
   #voice {
     font-size: 0.875rem;
     font-family: inherit;
   }
 */
+.left{
+    overflow:hidden;
+    &__ul{
+        color: rgba(52, 221, 18, 0.952);
+        font-size: 20px;
+        &__item{
+            padding-top: 0.5rem;
+            &__obj{
+                color: black;
+                text-decoration: none;
+                background-color: transparent;
+            }
+        }
+    }
+}
 
+.right{
+    &__conteiner{
+        &__words{
+            display:flex;
+            justify-content:flex-end;
+            align-items: center;
+            &__item{
+                padding-right: 5px;
+                color: blue;
+                font-size: 20px;
+            }
+            &__remove{
+                color:  grey;
+                border: 1px solid red;
+                border-radius: 50%;
+                display: flex;
+                justify-content:center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                font-size: 15px;
+            }
+        }
+
+    }
+}
+.main{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.abc_wrap{
+    //min-height: 100vh - 20px - 80px - 10px;
+}
 .abc_cont{
     background-color: yellow;
     display:flex;
     justify-content: start;
+    align-items: center;
     flex-wrap: wrap;
-    width: 74%; 
+    width: 90%; 
 }
 .letter{
     width: $letterSize;
@@ -91,6 +131,8 @@ h4{
 
 .maked_word{
     margin-top: 40px; 
+    width: 95%;
+    padding-bottom: 80px;
     &__word{
         background-color:rgb(127, 200, 241);
         background: #C8EAF5; 
@@ -115,3 +157,9 @@ h4{
 {
     display: none;
 }
+
+.active{
+    color: #495057;
+    background-color: rgb(63, 211, 43);
+    border-color: #dee2e6 #dee2e6 #fff;
+  }

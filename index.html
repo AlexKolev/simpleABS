@@ -13,34 +13,37 @@
 </head>
 
 <body>
-
-    <div class="lang_menu">
-        <ul class="nav nav-tabs">
-            <li class="nav-item">
-                <a class="nav-link" href="#">ENG</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="#">RUS</a>
-            </li>
-        </ul>
-    </div>
+    <header>
+        <div class="lang_menu">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ENG</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">RUS</a>
+                </li>
+            </ul>
+        </div>
+    </header>
     <!--
         <label for="voice">Голос:</label>
         <select id="voice"></select>
         -->
     <div class="wrapper">
-        <aside class="menu right">MENU
-            <ul class="menu__ul">
-                <li class="menu__ul__item">
-                    <a id="menu_1" class="menu__ul__item__obj active" href="#">ABC</a>
+        <aside class="left">MENU
+            <ul class="left__ul">
+                <li class="left__ul__item">
+                    <a id="menu_1" class="left__ul__item__obj active" href="#">ABC</a>
                 </li>
-                <li class="menu__ul__item">
-                    <a id="menu_2" class="menu__ul__item__obj" href="#">WORD</a>
+                <li class="left__ul__item">
+                    <a id="menu_2" class="left__ul__item__obj" href="#">WORD</a>
                 </li>
             </ul>
         </aside>
         <div class="main conteiner">
-            <div class="abc_cont conteiner"></div>
+            <div class="abc_wrap conteiner">
+                <div class="abc_cont conteiner"></div>
+            </div>
             <div class="maked_word disp_none conteiner">
                 <div class="maked_word__word"></div>
                 <div class="maked_word__buttons conteiner">
@@ -49,8 +52,24 @@
                 </div>
             </div>
         </div>
-        <aside class="menu left"></aside>
+        <aside class="right">
+            <div class="right__conteiner">
+                <div class="right__conteiner__words">
+                    <p class="right__conteiner__words__item">ЗИБ</p>
+                    <p class="right__conteiner__words__remove movelink_letter">&#10006</p>
+                </div>
+                <div class="right__conteiner__words">
+                    <p class="right__conteiner__words__item">ЗИМБАБВЕ</p>
+                    <p class="right__conteiner__words__remove movelink_letter">&#10006</p>
+                </div>
+                <div class="right__conteiner__words">
+                    <p class="right__conteiner__words__item">ДАШАПОШЛАВОН</p>
+                    <p class="right__conteiner__words__remove movelink_letter">&#10006</p>
+                </div>
+            </div>
+        </aside>
     </div>
+    <footer></footer>
     <!--
     <div class="maked_word disp_none conteiner">
         <div class="maked_word__word"></div>

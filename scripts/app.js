@@ -12,7 +12,7 @@
 //             voiceInEl.add(option);
 //         }
 //     });
-// 
+// }
 
 //Первоначальное заполнение
 make_ABC('RUS');
@@ -35,9 +35,10 @@ function make_ABC(abc) {
     if (abc == 'ENG') {
         // ABC_ENG in ABC_ENG.js
         for (let index = 0; index < ABC_ENG.length; index++) {
-            const element = ABC_ENG[index];
-            let aHtmlText = `<div class="letter ${ABC_ENG[index].color} movelink_letter letter_margin_abc">
-                                <h4>${ABC_ENG[index].letter.toUpperCase() + ABC_ENG[index].letter}</h4>
+            const el_keys = Object.keys(ABC_ENG[index]);
+            const element = el_keys[0];
+            let aHtmlText = `<div class="letter ${ABC_ENG[index][element]} movelink_letter letter_margin_abc">
+                                <h4>${element.toUpperCase() + element}</h4>
                             </div>   
                             `;
             abc_cont.insertAdjacentHTML('beforeend', aHtmlText)
@@ -45,9 +46,10 @@ function make_ABC(abc) {
     } else if (abc == 'RUS') {
         // ABC_RUS in ABC_RUS.js
         for (let index = 0; index < ABC_RUS.length; index++) {
-            const element = ABC_RUS[index];
-            let aHtmlText = `<div class="letter ${ABC_RUS[index].color} movelink_letter letter_margin_abc">
-                                    <h4>${ABC_RUS[index].letter.toUpperCase() + ABC_RUS[index].letter}</h4>
+            const el_keys = Object.keys(ABC_RUS[index]);
+            const element = el_keys[0];
+            let aHtmlText = `<div class="letter ${ABC_RUS[index][element]} movelink_letter letter_margin_abc">
+                                    <h4>${element.toUpperCase() + element}</h4>
                                 </div>   
                                 `;
             abc_cont.insertAdjacentHTML('beforeend', aHtmlText)
@@ -59,14 +61,14 @@ function make_ABC(abc) {
 //событие на нажатие буквы
 function clickHandler_letter(event) {
     let nav_link_cur = document.querySelector('.nav-link.active'); //произносим текст
-    let menu_link_cur = document.querySelector('.menu__ul__item__obj.active');
+    let menu_link_cur = document.querySelector('.left__ul__item__obj.active');
     if (menu_link_cur.id == 'menu_2') {
         add_To_Word(event.currentTarget.innerText.charAt(0), event.currentTarget.classList[1]);//добавляем букву
-    } else if (menu_link_cur.id == 'menu_1') {
-        speakText(event.currentTarget.innerText.charAt(0), nav_link_cur.innerText);
-    }
-
+    }// else if (menu_link_cur.id == 'menu_1') {
+    speakText(event.currentTarget.innerText.charAt(0), nav_link_cur.innerText);
+    //}
 }
+
 //произносим текст
 function speakText(to_say, lang) {
     let voice_lang = null;
@@ -85,16 +87,29 @@ function speakText(to_say, lang) {
     window.speechSynthesis.speak(utterance);
 }
 
+//добавление слова
 function add_To_Word(letter, color) {
     let word = document.querySelector('.maked_word__word');/*${ABC_ENG[index].color}*/
     let aHtmlText = `<div class="letter ${color} movelink_letter">
                                 <h4>${letter}</h4>
                             </div>   
                             `;
-    word.insertAdjacentHTML('beforeend', aHtmlText)
+    word.insertAdjacentHTML('beforeend', aHtmlText);
 }
 
 //BEGIN работа с кнопками
+//событие удаление слова
+function clickHandler_word_del(event) {
+    let word_del = this.parentNode;
+    word_del.remove();
+}
+//обновим addEventListener на крестике
+function add_word_del_click() {
+    let wordsRemove = document.querySelectorAll('.right__conteiner__words__remove');
+    wordsRemove.forEach(function (wordRemove) {
+        wordRemove.addEventListener('click', clickHandler_word_del);
+    });
+}
 //событие на нажатие Say
 function btn_say_click(event) {
     let letters = this.parentNode.parentNode.querySelectorAll('.letter');
@@ -102,11 +117,16 @@ function btn_say_click(event) {
     letters.forEach(function (letter) {
         whole_word += letter.innerText;
     });
-    speakText(whole_word, document.querySelector('.nav-link.active').innerText);
-    let add_word = document.querySelector('.menu.left');
-    let aHtmlText = `<p class="add_word">${whole_word}</div>`;
+    speakText(whole_word.toLowerCase(), document.querySelector('.nav-link.active').innerText);
+    let add_word = document.querySelector('.right__conteiner');
+    //let aHtmlText = `<p class="add_word">${whole_word}</div>`;
+    let aHtmlText = `<div class="right__conteiner__words">
+                        <p class="right__conteiner__words__item">${whole_word}</p>
+                        <p class="right__conteiner__words__remove movelink_letter">&#10006</p>
+                    </div>`;
     add_word.insertAdjacentHTML('beforeend', aHtmlText)
-
+    //обновим addEventListener на крестике
+    add_word_del_click();
 }
 let btn_say = document.querySelector('.maked_word__buttons__say');
 btn_say.addEventListener('click', btn_say_click);

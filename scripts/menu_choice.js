@@ -2,7 +2,7 @@
 /////////Работа с выбором МЕНЮ//////////////////////
 //изменим отображение выбора МЕНЮ
 function changeActiveClass_menu(event) {
-    let menu_link_old = document.querySelector('.menu__ul__item__obj.active');
+    let menu_link_old = document.querySelector('.left__ul__item__obj.active');
     menu_link_old.classList.remove('active');
     event.currentTarget.classList.add('active');
 
@@ -20,7 +20,7 @@ function clickHandler_menu_obj(event) {
     changeActiveClass_menu(event);
 }
 //навесим событие на нажатие МЕНЮ
-let menu_objts = document.querySelectorAll('.menu__ul__item__obj');
+let menu_objts = document.querySelectorAll('.left__ul__item__obj');
 menu_objts.forEach(function (menu_obj) {
     menu_obj.addEventListener('click', clickHandler_menu_obj)
 });

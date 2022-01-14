@@ -1,2 +1,7 @@
 $widthConteiner : 1140px;
 $letterSize : 80px;
+
+@mixin grid_rows(){
+    grid-template-rows: auto;
+    gap: 30px;
+}
