@@ -56,11 +56,14 @@ function make_ABC(abc) {
         };
     };
     add_letter_click();
+
+    add_word_del_click();
+    add_right_word_listener();
 };
 
 //событие на нажатие буквы
 function clickHandler_letter(event) {
-    let nav_link_cur = document.querySelector('.nav-link.active'); //произносим текст
+    let nav_link_cur = document.querySelector('.nav-link.active'); //язык текста
     let menu_link_cur = document.querySelector('.left__ul__item__obj.active');
     if (menu_link_cur.id == 'menu_2') {
         add_To_Word(event.currentTarget.innerText.charAt(0), event.currentTarget.classList[1]);//добавляем букву
@@ -87,7 +90,7 @@ function speakText(to_say, lang) {
     window.speechSynthesis.speak(utterance);
 }
 
-//добавление слова
+//добавление буквы в слово
 function add_To_Word(letter, color) {
     let word = document.querySelector('.maked_word__word');/*${ABC_ENG[index].color}*/
     let aHtmlText = `<div class="letter ${color} movelink_letter">
@@ -121,13 +124,38 @@ function btn_say_click(event) {
     let add_word = document.querySelector('.right__conteiner');
     //let aHtmlText = `<p class="add_word">${whole_word}</div>`;
     let aHtmlText = `<div class="right__conteiner__words">
-                        <p class="right__conteiner__words__item">${whole_word}</p>
+                        <p class="right__conteiner__words__item movelink_letter">${whole_word}</p>
                         <p class="right__conteiner__words__remove movelink_letter">&#10006</p>
                     </div>`;
     add_word.insertAdjacentHTML('beforeend', aHtmlText)
     //обновим addEventListener на крестике
     add_word_del_click();
+    add_right_word_listener();
 }
+//событие добавление слова из правого списка
+function clickHandler_word_add(event) {
+    let word = this.innerText;
+    let ABC = null;
+    if (document.querySelector('.nav-link.active').innerText == 'ENG') {
+        ABC = ABC_ENG;
+    } else if (document.querySelector('.nav-link.active').innerText == 'RUS') {
+        ABC = ABC_RUS;
+    }
+    btn_clear_click.call(document.querySelector('.maked_word__buttons__clear'));  // 'Custom'
+    word.split('').forEach((letter) => {
+        console.log(letter);
+        let abc_item = ABC.find(item => Object.keys(item)[0] == letter.toLowerCase());
+        add_To_Word(letter, abc_item[letter.toLowerCase()]);//добавляем букву
+    })
+}
+//обновим addEventListener на словах справа
+function add_right_word_listener() {
+    let words = document.querySelectorAll('.right__conteiner__words__item');
+    words.forEach(function (word) {
+        word.addEventListener('click', clickHandler_word_add);
+    });
+}
+
 let btn_say = document.querySelector('.maked_word__buttons__say');
 btn_say.addEventListener('click', btn_say_click);
 

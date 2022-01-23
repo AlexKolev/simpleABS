@@ -27,7 +27,6 @@ footer {
 
 aside {
   width: 13%;
-  background: #C8EAF5;
   text-align: center;
   font-size: 25px;
   color: green;
@@ -73,6 +72,20 @@ aside {
 */
 .left {
   overflow: hidden;
+  position: relative;
+}
+
+.left::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(img/right.jpg);
+  opacity: .6;
+  z-index: -1;
 }
 
 .left__ul {
@@ -90,6 +103,24 @@ aside {
   background-color: transparent;
 }
 
+.right {
+  overflow: hidden;
+  position: relative;
+}
+
+.right::before {
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url(img/left.jpg);
+  opacity: .6;
+  z-index: -1;
+}
+
 .right__conteiner__words {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,8 +135,8 @@ aside {
 
 .right__conteiner__words__item {
   padding-right: 5px;
-  color: blue;
-  font-size: 20px;
+  color: #0004ff;
+  font-size: 16px;
 }
 
 .right__conteiner__words__remove {
@@ -138,10 +169,14 @@ aside {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-image: url(img/main_backgroung.jpg);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: blue;
 }
 
 .abc_cont {
-  background-color: yellow;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -162,6 +197,8 @@ aside {
   border: 1px solid #F26376;
   line-height: 80px;
   text-align: center;
+  background-color: yellow;
+  background: rgba(235, 231, 8, 0.6);
 }
 
 .letter_margin_abc {
@@ -174,13 +211,12 @@ aside {
 
 .maked_word {
   margin-top: 40px;
-  width: 95%;
+  width: 90%;
   padding-bottom: 80px;
 }
 
 .maked_word__word {
-  background-color: #7fc8f1;
-  background: #C8EAF5;
+  background: rgba(8, 209, 235, 0.6);
   border: 1px solid #000;
   display: -webkit-box;
   display: -ms-flexbox;
