@@ -56,7 +56,6 @@ function make_ABC(abc) {
         };
     };
     add_letter_click();
-
     add_word_del_click();
     add_right_word_listener();
 };
